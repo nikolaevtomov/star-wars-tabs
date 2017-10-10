@@ -1,0 +1,26 @@
+[
+  {
+    "id": 6543,
+    "name": "C-P3O",
+    "points": "2983",
+    "path": "C3P-0.svg"
+  },
+  {
+    "id": 6544,
+    "name": "Darth Vader",
+    "points": "2676",
+    "path": "vader.svg"
+  },
+  {
+    "id": 6545,
+    "name": "BB-8",
+    "points": "1292",
+    "path": "bb-8.svg"
+  },
+  {
+    "id": 6546,
+    "name": "Boba Fett",
+    "points": "872",
+    "path": "fett.svg"
+  }
+]

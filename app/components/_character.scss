@@ -1,0 +1,52 @@
+/*! _character.scss */
+
+@import "../styles/variables";
+
+$component: 'character';
+
+.#{$component} {
+  display: flex;
+  flex: 1 100%;
+  flex-direction: row;
+  padding: 1.4rem;
+  border-bottom: 2px solid $color2;
+
+  &:last-child {
+    border-bottom: 0 none;
+  }
+
+  &__image {
+    flex: 0 1 4.8rem;
+    width: 4.8rem;
+    height: 4.8rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 calc(100% - 4.8rem);
+
+    &--item {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      padding-left: 1rem;
+    }
+  }
+  &__name {
+    max-width: 12.2rem;
+    font-weight: bold;
+    color: $color7;
+
+    & input {
+      max-width: 12.2rem;
+      max-height: 3.5rem;
+    }
+  }
+  &__points {
+    color: $color5;
+  }
+}

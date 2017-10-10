@@ -1,0 +1,41 @@
+/*! _tabs.scss */
+
+@import "../styles/variables";
+
+$component: 'tabs';
+
+.#{$component} {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 1rem;
+
+  @media (min-width: 576px) {
+    margin-left: 2.8rem;
+  }
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    max-width: 7.9rem;
+    height: 3rem;
+    margin: 0 1px;
+    padding: .6rem 1.2rem;
+    font-weight: bold;
+    color: $color7;
+    background-color: $color1;
+    cursor: pointer;
+    border-top-left-radius: 1.2rem;
+    border-top-right-radius: 1.2rem;
+
+    @media (min-width: 576px) {
+      max-width: 11rem;
+    }
+  }
+  & .active {
+    font-weight: bold;
+    background-color: $color4;
+  }
+}

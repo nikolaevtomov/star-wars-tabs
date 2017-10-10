@@ -1,0 +1,42 @@
+/*! _sw-container.scss */
+
+@import "../styles/variables";
+
+$component: 'sw-container';
+
+.#{$component} {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1rem;
+
+  @media (min-width: 576px) {
+    width: 80rem;
+    flex-direction: row;
+    margin-top: 5rem;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+
+    @media (min-width: 576px) {
+      width: 50rem;
+      margin: 0 5rem 0 0;
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 1rem 0 0 0;
+
+    @media (min-width: 576px) {
+      width: 21rem;
+      margin: 0 0 0 5rem;
+    }
+  }
+}
