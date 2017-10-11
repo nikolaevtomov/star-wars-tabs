@@ -1,17 +1,17 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux-immutable'
 import { routerReducer } from 'react-router-redux'
-import { reducer as formReducer } from 'redux-form'
+import { reducer as formReducer } from 'redux-form/immutable'
 
-import starWarsCharacters from 'app/reducers/star-wars-characters'
+import entities from 'app/reducers/entities'
 import isEditable from 'app/reducers/is-editable'
-import activeCharacter from 'app/reducers/active-character'
+import active from 'app/reducers/active'
 
 const rootReducer = combineReducers({
   routing: routerReducer,
   form: formReducer,
-  starWarsCharacters,
+  entities,
   isEditable,
-  activeCharacter
+  active
 })
 
 export default rootReducer

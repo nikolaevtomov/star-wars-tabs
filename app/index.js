@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
+
 import Routes from 'app/routes'
 import { Stores } from 'app/stores'
 import { appLoadingStarted } from 'app/actions'

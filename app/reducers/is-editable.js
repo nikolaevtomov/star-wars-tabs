@@ -1,4 +1,3 @@
-
 import { TOGGLE_EDITABLE } from 'app/actions'
 
 export const initialState = false

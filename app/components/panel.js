@@ -1,32 +1,32 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { List, Map } from 'immutable'
 
 import Character from 'app/components/character'
 
 import 'app/components/_panel.scss'
 
-const Panel = ({ items, isNameEditable, onChange, onClick }) => {
+const Panel = ({ items, isEditable, handleChange, handleClick }) => {
   return (
     <div className={'panel'}>
       {
-      (items.constructor === Array)
-      ? items.map(item =>
+      (List.isList(items))
+      ? items.valueSeq().map(item =>
         <Character
-          key={item.id}
-          id={item.id}
-          image={item.path}
-          name={item.name}
-          points={item.points}
-        />
-        )
+          key={item.get('id')}
+          id={item.get('id')}
+          image={item.get('path')}
+          name={item.get('name')}
+          points={item.get('points')}
+        />)
       : <Character
-        id={items.id}
-        image={items.path}
-        name={items.name}
-        points={items.points}
-        isEditable={isNameEditable}
-        onClick={onClick}
-        onChange={onChange}
+        id={items.get('id')}
+        image={items.get('path')}
+        name={items.get('name')}
+        points={items.get('points')}
+        isEditable={isEditable}
+        handleClick={handleClick}
+        handleChange={handleChange}
       />
       }
     </div>
@@ -35,15 +35,15 @@ const Panel = ({ items, isNameEditable, onChange, onClick }) => {
 
 Panel.propTypes = {
   items: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.object
+    PropTypes.instanceOf(List),
+    PropTypes.instanceOf(Map)
   ]),
   isEditable: PropTypes.bool,
-  onClick: PropTypes.func,
-  onChange: PropTypes.func
+  handleClick: PropTypes.func,
+  handleChange: PropTypes.func
 }
 
-Character.defaultProps = {
+Panel.defaultProps = {
   isEditable: false,
   onClick: () => {},
   onChange: () => {}

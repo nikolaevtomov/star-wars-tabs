@@ -1,6 +1,6 @@
 {
-  "name": "Star-Wars-Tabs",
-  "version": "0.1.1",
+  "name": "React",
+  "version": "0.1.2",
   "description": "Task",
   "main": "app/index.js",
   "scripts": {
@@ -50,7 +50,7 @@
   "dependencies": {
     "babel-runtime": "^6.23.0",
     "classnames": "^2.2.5",
-    "immutable": "^3.8.1",
+    "immutable": "^3.8.2",
     "moment": "^2.17.1",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
@@ -60,6 +60,7 @@
     "react-router-redux": "^4.0.8",
     "redux": "^3.6.0",
     "redux-form": "^7.0.4",
+    "redux-immutable": "^4.0.0",
     "redux-saga": "^0.15.1",
     "reselect": "^3.0.0"
   }

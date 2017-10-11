@@ -1,26 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import { Map } from 'immutable'
 
 import TabItem from 'app/components/tab-item'
 
 import 'app/components/_tabs.scss'
 
-const Tabs = ({ items, updateItem, activeCharacter }) => {
-  const navStyle = id => classNames({
+const Tabs = ({ items, updateItem, activeItemId }) => {
+  const tabStyle = id => classNames({
     'long-text': true,
     tabs__item: true,
-    active: (activeCharacter === id)
+    active: (activeItemId === id)
   })
 
   return (
     <ul className={'tabs'}>
-      {items.map(item =>
+      {items.valueSeq().map(item =>
         <TabItem
-          key={item.id}
-          name={item.name}
-          classes={navStyle(item.id)}
-          click={() => updateItem(item.id)}
+          key={item.get('id')}
+          name={item.get('name')}
+          classes={tabStyle(item.get('id'))}
+          handleClick={() => updateItem(item.get('id'))}
         />
         )}
     </ul>
@@ -28,9 +29,9 @@ const Tabs = ({ items, updateItem, activeCharacter }) => {
 }
 
 Tabs.propTypes = {
-  items: PropTypes.array,
+  items: PropTypes.instanceOf(Map),
   updateItem: PropTypes.func,
-  activeCharacter: PropTypes.number
+  activeItemId: PropTypes.number
 }
 
 export default Tabs

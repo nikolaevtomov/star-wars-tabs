@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const TabItem = ({ name, classes, click }) => {
+const TabItem = ({ name, classes, handleClick }) => {
   return (
     <li
       className={classes}
-      onClick={click}>
+      onClick={handleClick}>
       {name}
     </li>
   )
@@ -14,7 +14,7 @@ const TabItem = ({ name, classes, click }) => {
 TabItem.propTypes = {
   name: PropTypes.string,
   classes: PropTypes.string,
-  click: PropTypes.func
+  handleClick: PropTypes.func
 }
 
 export default TabItem

@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Field } from 'redux-form'
+import { Field } from 'redux-form/immutable'
 
 import 'app/components/_character.scss'
 
-const Character = ({ id, image, name, points, isEditable, onChange, onClick }) => {
+const Character = ({ id, image, name, points, isEditable, handleChange, handleClick }) => {
   return (
     <div className={'character'}>
       <div
@@ -17,16 +17,15 @@ const Character = ({ id, image, name, points, isEditable, onChange, onClick }) =
           ? <div
             className={'character__inner--item character__name long-text'}>
             <Field
-              onChange={e => onChange({ id: id, name: e.target.value })}
-              onBlur={() => onClick()}
+              onChange={e => handleChange({ id: id, name: e.target.value })}
+              onBlur={() => handleClick()}
               name='name' component='input' type='text'
               autoFocus
             />
           </div>
           : <div
             className={'character__inner--item character__name long-text'}
-            onClick={() => onClick()}
-            >
+            onClick={() => handleClick()}>
             {name}
           </div>
         }
@@ -42,14 +41,14 @@ Character.propTypes = {
   name: PropTypes.string,
   points: PropTypes.string,
   isEditable: PropTypes.bool,
-  onChange: PropTypes.func,
-  onClick: PropTypes.func
+  handleChange: PropTypes.func,
+  handleClick: PropTypes.func
 }
 
 Character.defaultProps = {
   isEditable: false,
-  onClick: () => {},
-  onChange: () => {}
+  handleChange: () => {},
+  handleClick: () => {}
 }
 
 export default Character

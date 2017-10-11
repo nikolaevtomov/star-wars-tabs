@@ -17,14 +17,14 @@ export const appLoadingSucceed = typeValueAction(APP_LOADING_SUCCEED)
 /*
  * UI actions
  */
-export const LOAD_STARWARS_CHARACTERS = 'LOAD_STARWARS_CHARACTERS'
-export const loadStarWarsCharacters = typeValueAction(LOAD_STARWARS_CHARACTERS)
+export const LOAD_ENTITIES = 'LOAD_ENTITIES'
+export const loadEntities = typeValueAction(LOAD_ENTITIES)
+
+export const UPDATE_ENTITY = 'UPDATE_ENTITY'
+export const updateEntity = typeValueAction(UPDATE_ENTITY)
 
 export const TOGGLE_EDITABLE = 'TOGGLE_EDITABLE'
 export const toggleEditable = typeValueAction(TOGGLE_EDITABLE)
 
-export const UPDATE_ACTIVE_CHARACTER = 'UPDATE_ACTIVE_CHARACTER'
-export const updateActiveCharacter = typeValueAction(UPDATE_ACTIVE_CHARACTER)
-
-export const UPDATE_CHARACTERS_NAME = 'UPDATE_CHARACTERS_NAME'
-export const updateCharactersName = typeValueAction(UPDATE_CHARACTERS_NAME)
+export const UPDATE_ACTIVE = 'UPDATE_ACTIVE'
+export const updateActive = typeValueAction(UPDATE_ACTIVE)
