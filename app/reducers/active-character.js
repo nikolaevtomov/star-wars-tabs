@@ -1,14 +1,7 @@
 
-import {
-  UPDATE_ACTIVE_CHARACTER
-} from 'app/actions'
-/*
- * It is a simple reducer receives and action an places the value on stores
- * The initial value could have come from server response for inilialising the app
- * Or set as a static variable in a config file
- * This should not be hard-coded here
- */
-const initialState = 6544
+import { UPDATE_ACTIVE_CHARACTER } from 'app/actions'
+
+const initialState = 6543
 
 export default function (state = initialState, { type, value }) {
   switch (type) {

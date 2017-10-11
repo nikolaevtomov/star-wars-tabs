@@ -11,35 +11,49 @@ import { updateActiveCharacter, toggleEditable, updateCharactersName } from 'app
 
 import 'app/containers/_sw-container.scss'
 
-const StarWarsContainer = ({
-  characters,
-  selectedChar,
-  isNameEditable,
-  activeCharacter,
-  updateTabItem,
-  toggleEditable,
-  updateName
-}) => {
-  return (
-    <div className={'sw-container'}>
-      <div className={'sw-container__left'}>
-        <Tabs
-          items={characters}
-          updateItem={updateTabItem}
-          activeCharacter={activeCharacter}
-        />
-        <Panel
-          items={selectedChar}
-          onChange={updateName}
-          onClick={toggleEditable}
-          isNameEditable={isNameEditable}
-        />
+class StarWarsContainer extends React.Component {
+  constructor (props) {
+    super(props)
+
+    this.handleOnTest = this.handleOnTest.bind(this)
+  }
+
+  handleOnTest () {
+    console.log('test..')
+  }
+
+  render () {
+    const {
+      characters,
+      updateTabItem,
+      activeCharacter,
+      selectedChar,
+      updateName,
+      toggleEditable,
+      isNameEditable
+    } = this.props
+
+    return (
+      <div className={'sw-container'}>
+        <div className={'sw-container__left'}>
+          <Tabs
+            items={characters}
+            updateItem={updateTabItem}
+            activeCharacter={activeCharacter}
+          />
+          <Panel
+            items={selectedChar}
+            onChange={updateName}
+            onClick={toggleEditable}
+            isNameEditable={isNameEditable}
+          />
+        </div>
+        <div className={'sw-container__right'}>
+          <Panel items={characters} />
+        </div>
       </div>
-      <div className={'sw-container__right'}>
-        <Panel items={characters} />
-      </div>
-    </div>
-  )
+    )
+  }
 }
 
 StarWarsContainer.propTypes = {
@@ -52,24 +66,25 @@ StarWarsContainer.propTypes = {
   updateName: PropTypes.func
 }
 
+const mapStateToProps = state => ({
+  characters: selectCharacters(state),
+  selectedChar: oneOfCharacter(state),
+  isNameEditable: state.isEditable,
+  activeCharacter: state.activeCharacter,
+  initialValues: {
+    name: oneOfCharacter(state).name
+  }
+})
+
+const mapDispatchToProps = {
+  updateTabItem: updateActiveCharacter,
+  updateName: updateCharactersName,
+  toggleEditable: toggleEditable
+}
+
 const ConnectedStarWarsContainer = reduxForm({
-  form: 'Update-Name',
+  form: 'Character-Form',
   enableReinitialize: true
 })(StarWarsContainer)
 
-export default connect(
-  state => ({
-    characters: selectCharacters(state),
-    selectedChar: oneOfCharacter(state),
-    isNameEditable: state.isEditable,
-    activeCharacter: state.activeCharacter,
-    initialValues: {
-      name: oneOfCharacter(state).name
-    }
-  }),
-  {
-    updateTabItem: updateActiveCharacter,
-    updateName: updateCharactersName,
-    toggleEditable
-  }
-)(ConnectedStarWarsContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(ConnectedStarWarsContainer)
