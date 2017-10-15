@@ -28,7 +28,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: isDev ? 'bundle.js' : 'bundle.[hash].js',
-    publicPath: ''
+    publicPath: '/'
   },
 
   module: {
@@ -77,6 +77,7 @@ module.exports = {
     extensions: ['.jsx', '.scss', '.js', '.json'],
     alias: {
       app: path.resolve(__dirname, 'app'),
+      config: path.resolve(__dirname, 'app/config'),
       fonts: path.resolve(__dirname, 'app/static/fonts'),
       images: path.resolve(__dirname, 'app/static/images')
     }
@@ -111,7 +112,8 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'app', 'index.html')
+      template: path.join(__dirname, 'app', 'index.html'),
+      favicon: path.join(__dirname, 'app', 'static', 'favicons', 'favicon.ico')
     }),
 
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/) // eslint-disable-line
